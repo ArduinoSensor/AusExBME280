@@ -25,12 +25,12 @@
 #define BME_CS 10
 
 
-//AusExBME280 bme280 = AusExBME280(&Wire);
+AusExBME280 bme280 = AusExBME280(&Wire);
 //AusExBME280 bme280 = AusExBME280(0xFF, 0xFF, 0xFF, 5);  // ESP32のハードSPI
 //AusExBME280 bme280 = AusExBME280(0xFF, 0xFF, 0xFF, 15);  // ESP8266のハードSPI
 //AusExBME280 bme280 = AusExBME280(0xFF, 0xFF, 0xFF, 10);  // M0 proのハードSPI
 //AusExBME280 bme280 = AusExBME280(14, 12, 13, 15);
-AusExBME280 bme280 = AusExBME280(BME_SCK, BME_MOSI, BME_MISO, BME_CS);
+//AusExBME280 bme280 = AusExBME280(BME_SCK, BME_MOSI, BME_MISO, BME_CS);
 uint32_t delayMS;
 
 void printMode(){
@@ -171,7 +171,7 @@ void loop()
     Serial.println(F("Error reading pressure!"));
   } else {
     Serial.print(F("Pressure: "));
-    Serial.print(event.pressure/100);
+    Serial.print(event.pressure);
     Serial.println(F("hPa"));
   }
 }
